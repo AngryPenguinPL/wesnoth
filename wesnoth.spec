@@ -10,6 +10,7 @@ Group:		Games/Strategy
 Url:		http://www.wesnoth.org/
 Source0:	http://downloads.sourceforge.net/project/wesnoth/wesnoth-%(echo %{version} |cut -d. -f1-2)/wesnoth-%{version}/wesnoth-%{version}.tar.bz2
 Source1:	%{name}-icon.png
+Patch0:		wesnoth-sdl.patch
 BuildRequires:	cmake
 BuildRequires:	imagemagick
 BuildRequires:	boost-devel
@@ -44,6 +45,7 @@ This package contains "Battle for wesnoth" server, used to play multiplayer
 game without needing to install the full client.
 
 %prep
+%patch0 -p0
 %setup -qn %{name}-%{version}%([ -z $(echo %{version} |cut -d. -f3) ] && echo -n .0)
 
 %build
