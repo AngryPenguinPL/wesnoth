@@ -67,6 +67,18 @@ find %{buildroot} -name .gitignore |xargs rm -f
 %find_lang %{name} --with-man
 %find_lang %{name}d --with-man
 
+# Use DejaVu and Lato font packages rather than included fonts
+pushd %{buildroot}%{_gamesdatadir}/wesnoth/fonts
+for font in in DejaVuSans*; do
+  rm -f $font
+  ln -sf %{_datadir}/fonts/TTF/dejavu/$font $font
+done
+for font in Lato*; do
+  rm -f $font
+  ln -sf %{_datadir}/fonts/lato/$font $font
+done
+popd
+
 %files -f %{name}.lang
 %doc README.md changelog.md players_changelog.md
 %doc %{_docdir}/%{name}/html/
