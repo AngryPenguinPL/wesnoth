@@ -45,8 +45,8 @@ This package contains "Battle for wesnoth" server, used to play multiplayer
 game without needing to install the full client.
 
 %prep
-%patch0 -p0
 %setup -qn %{name}-%{version}%([ -z $(echo %{version} |cut -d. -f3) ] && echo -n .0)
+%patch0 -p0
 
 %build
 export LDFLAGS="$LDFLAGS -lpthread"
