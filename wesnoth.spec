@@ -68,20 +68,18 @@ find %{buildroot} -name .gitignore |xargs rm -f
 %find_lang %{name}d --with-man
 
 %files -f %{name}.lang
-%defattr(-,root,root,0755)
 %doc README.md changelog.md players_changelog.md
 %doc %{_docdir}/%{name}/html/
 %license COPYING copyright
-%exclude %{_gamesbindir}/%{name}d
-%{_gamesbindir}/*
-%{_gamesdatadir}/%{name}
-%{_mandir}/*/%{name}.*
-%{_datadir}/applications/*
-%{_datadir}/metainfo/*
-%{_iconsdir}/*
+%{_gamesbindir}/%{name}
+%{_mandir}/man6/%{name}.6*
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/metainfo/%{name}.appdata.xml
+%{_iconsdir}/hicolor/*/apps/%{name}-icon.png
+%{_gamesdatadir}/%{name}/
 
-%files -n %{name}-server -f %{name}d.lang
-%defattr(-,root,root,0755)
+%files server -f %{name}d.lang
 %{_gamesbindir}/%{name}d
-%{_mandir}/*/%{name}d.*
+%{_mandir}/man6/%{name}d.6*
+%ghost %{_localstatedir}/run/%{name}d/socket
 
