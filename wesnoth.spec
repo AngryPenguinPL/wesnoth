@@ -10,7 +10,7 @@ Group:		Games/Strategy
 Url:		http://www.wesnoth.org/
 Source0:	http://downloads.sourceforge.net/project/wesnoth/wesnoth-%(echo %{version} |cut -d. -f1-2)/wesnoth-%{version}/wesnoth-%{version}.tar.bz2
 Source1:	%{name}-icon.png
-Patch0:		wesnoth-sdl.patch
+Patch0:		wesnoth-sdl-fixed.patch
 BuildRequires:	cmake
 BuildRequires:	imagemagick
 BuildRequires:	boost-devel
