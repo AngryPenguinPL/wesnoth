@@ -69,12 +69,15 @@ find %{buildroot} -name .gitignore |xargs rm -f
 
 %files -f %{name}.lang
 %defattr(-,root,root,0755)
-%doc README.md
+%doc README.md changelog.md players_changelog.md
+%doc %{_docdir}/%{name}/html/
+%license COPYING copyright
 %exclude %{_gamesbindir}/%{name}d
 %{_gamesbindir}/*
 %{_gamesdatadir}/%{name}
 %{_mandir}/*/%{name}.*
 %{_datadir}/applications/*
+%{_datadir}/metainfo/*
 %{_iconsdir}/*
 
 %files -n %{name}-server -f %{name}d.lang
