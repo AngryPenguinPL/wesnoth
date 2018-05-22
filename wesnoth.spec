@@ -52,12 +52,11 @@ game without needing to install the full client.
 
 %build
 export LDFLAGS="$LDFLAGS -lpthread"
-%cmake -DENABLE_STRICT_COMPILATION=OFF \
-	-DBINDIR=%{_gamesbindir} \
-	-DDATAROOTDIR=%{_gamesdatadir} \
-	-DDESKTOPDIR=%{_datadir}/applications \
-	-DDOCDIR=%{_datadir}/doc/%{name} \
-	-DMANDIR=%{_mandir} -DICONDIR=%{_iconsdir}
+%cmake \
+	-DCMAKE_INSTALL_BINDIR=%{_gamesbindir} \
+	-DCMAKE_INSTALL_DATADIR=%{_gamesdatadir} \
+	-DCMAKE_INSTALL_DATAROOTDIR=%{_datadir} \
+	-DENABLE_LTO=ON
 %make
 
 %install
