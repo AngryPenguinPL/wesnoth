@@ -10,13 +10,14 @@ Group:		Games/Strategy
 Url:		http://www.wesnoth.org/
 Source0:	http://downloads.sourceforge.net/project/wesnoth/wesnoth-%(echo %{version} |cut -d. -f1-2)/wesnoth-%{version}/wesnoth-%{version}.tar.bz2
 Source1:	%{name}-icon.png
-Patch0:		wesnoth-sdl-fixed.patch
+#Patch0:		wesnoth-sdl-fixed.patch
 BuildRequires:	cmake
 BuildRequires:	imagemagick
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(dbus-1)
 BuildRequires:	pkgconfig(fontconfig)
 BuildRequires:	pkgconfig(fribidi)
+BuildRequires:	pkgconfig(libcrypto)
 BuildRequires:	pkgconfig(lua)
 BuildRequires:	pkgconfig(pango)
 BuildRequires:	pkgconfig(pangocairo)
@@ -47,7 +48,7 @@ game without needing to install the full client.
 
 %prep
 %setup -qn %{name}-%{version}%([ -z $(echo %{version} |cut -d. -f3) ] && echo -n .0)
-%patch0 -p0
+#patch0 -p0
 
 %build
 export LDFLAGS="$LDFLAGS -lpthread"
