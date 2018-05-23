@@ -77,6 +77,8 @@ find %{buildroot} -name .gitignore |xargs rm -f
 %{_datadir}/metainfo/%{name}.appdata.xml
 %{_iconsdir}/hicolor/*/apps/%{name}-icon.png
 %{_gamesdatadir}/%{name}/
+%/usr/bin/*
+%/usr/share/wesnoth/*
 
 %files server -f %{name}d.lang
 %{_gamesbindir}/%{name}d
