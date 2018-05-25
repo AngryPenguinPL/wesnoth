@@ -83,3 +83,7 @@ find %{buildroot} -name .gitignore |xargs rm -f
 %{_mandir}/man6/%{name}d.6*
 %ghost %{_localstatedir}/run/%{name}d/socket
 
+%clean
+rm -rf %{buildroot}
+
+
